@@ -20,7 +20,7 @@ class DataTransformationConfig:
 
 class DataTransformation:
     def __init__(self):
-        self.data_transforamation_config = DataTransformationConfig
+        self.data_transforamation_config = DataTransformationConfig()
 
     def get_data_transformer_object(self):
         '''
@@ -50,7 +50,7 @@ class DataTransformation:
 
                 steps=[
                     ("imputer",SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder",OneHotEncoder()),
+                    ("one_hot_encoder",OneHotEncoder(handle_unknown="ignore")),
                     ("scaler",StandardScaler(with_mean=False))
                 ]
             )
